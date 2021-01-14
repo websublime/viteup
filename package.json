@@ -2,6 +2,9 @@
   "name": "vite-plus",
   "version": "1.0.0",
   "description": "Vite cli plus",
+  "bin": {
+    "vite": "./bin/vite"
+  },
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
@@ -41,10 +44,20 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@bitauth/libauth": "^1.17.1"
+    "@bitauth/libauth": "^1.17.1",
+    "chalk": "4.1.0",
+    "inquirer": "7.3.3",
+    "commander": "6.2.1",
+    "@vitejs/plugin-vue": "^1.0.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "@vuedx/typecheck": "^0.5.0",
+    "@vuedx/typescript-plugin-vue": "^0.5.0",
+    "vite": "^2.0.0-beta.27"
   },
   "devDependencies": {
+    "@types/node": "^14.14.20",
     "@ava/typescript": "^1.1.1",
+    "@types/inquirer": "^7.3.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
