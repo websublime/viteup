@@ -12,7 +12,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "build": "run-p build:*",
+    "build": "rm -rf build && run-p build:* && run-p mkdirs && run-p copy:templates",
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
     "fix": "run-s fix:*",
@@ -27,6 +27,8 @@
     "diff-integration-tests": "mkdir -p diff && rm -rf diff/test && cp -r test diff/test && rm -rf diff/test/test-*/.git && cd diff && git init --quiet && git add -A && git commit --quiet --no-verify --allow-empty -m 'WIP' && echo '\\n\\nCommitted most recent integration test output in the \"diff\" directory. Review the changes with \"cd diff && git diff HEAD\" or your preferred git diff viewer.'",
     "watch:build": "tsc -p tsconfig.json -w",
     "watch:test": "nyc --silent ava --watch",
+    "copy:templates": "cp -r src/templates/* build/main/templates && cp -r src/templates/* build/module/templates",
+    "mkdirs": "mkdir -p build/main/templates && mkdir -p build/module/templates",
     "cov": "run-s build test:unit cov:html cov:lcov && open-cli coverage/index.html",
     "cov:html": "nyc report --reporter=html",
     "cov:lcov": "nyc report --reporter=lcov",
@@ -52,10 +54,12 @@
     "@vue/compiler-sfc": "^3.0.5",
     "@vuedx/typecheck": "^0.5.0",
     "@vuedx/typescript-plugin-vue": "^0.5.0",
-    "vite": "^2.0.0-beta.27"
+    "vite": "^2.0.0-beta.27",
+    "fs-extra": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.20",
+    "@types/fs-extra": "^9.0.6",
     "@ava/typescript": "^1.1.1",
     "@types/inquirer": "^7.3.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",

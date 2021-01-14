@@ -1,9 +1,9 @@
 import { red } from 'chalk';
 
-import { commander } from './commands';
+import { commander } from './commands/commander';
 import { banner } from './utils';
 
-(async () => {
+async function boot() {
   console.log(banner());
 
   const parsed = await commander.parseAsync(process.argv);
@@ -12,8 +12,10 @@ import { banner } from './utils';
   if (args.length < 1) {
     commander.outputHelp();
   }
-})().catch((err: Error) => {
-  console.error(`⚠️ ${red(err.message)}`);
+}
+
+boot().catch((err: Error) => {
+  console.error(`⚠️  ${red(err.message)}`);
 
   process.exit(1);
 });
