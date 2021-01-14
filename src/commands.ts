@@ -1,4 +1,6 @@
-import { createCommand } from 'commander';
+import { Command, createCommand } from 'commander';
+
+import { validateEmptyValue } from './utils';
 
 const commander = createCommand();
 
@@ -12,8 +14,14 @@ commander
   .command('create')
   .description('Create application or library')
   .option('--app <name>', 'Create application')
-  .action((...args) => {
-    console.log(args);
+  .option('--type <framework>', 'Type of framework', 'vue')
+  .action((command: Command) => {
+    const appConfig = new Map();
+
+    validateEmptyValue(command.app);
+
+    appConfig.set('app', command.app);
+    appConfig.set('type', command.type);
   });
 
 export {
