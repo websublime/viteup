@@ -5,6 +5,17 @@ import { defineConfig } from 'vite';
 // eslint-disable-next-line import/extensions
 import conf from './vue.json';
 
+import arg from 'arg';
+
+const args = arg(
+  {
+    '--app': String
+  },
+  {
+    permissive: true
+  }
+);
+
 const buildApp = process.env.APP || conf.defaults;
 const rootDir = resolve(__dirname);
 const target = conf.apps[buildApp];
@@ -25,7 +36,7 @@ const Config = defineConfig({
   },
   build: {
     manifest: true,
-    minify: false,
+    minify: true,
     sourcemap: true
   },
   css: {

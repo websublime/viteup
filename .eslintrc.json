@@ -3,7 +3,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "project": "./tsconfig.json" },
   "env": { "es6": true },
-  "ignorePatterns": ["node_modules", "build", "coverage", "src/templates"],
+  "ignorePatterns": ["node_modules", "build", "coverage", "src/templates/*"],
   "plugins": ["import", "eslint-comments"],
   "extends": [
     "eslint:recommended",

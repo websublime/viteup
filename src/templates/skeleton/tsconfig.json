@@ -1,19 +1,34 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
+    "paths": {},
+    "plugins": [
+      {
+        "name": "@vuedx/typescript-plugin-vue"
+      }
+    ],
     "sourceMap": true,
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client"],
-    "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }],
-    "baseUrl": ".",
-    "paths": {
-      "/@libs/*": ["./libs/*"],
-      "/@site/*": ["./apps/site/src/*"]
-    }
+    "strict": true,
+    "target": "esnext",
+    "types": [
+      "vite/client"
+    ]
   },
-  "include": ["apps/**/*.ts", "apps/**/*.d.ts", "apps/**/*.tsx", "apps/**/*.vue"]
+  "include": [
+    "apps/**/*.ts",
+    "apps/**/*.d.ts",
+    "apps/**/*.tsx",
+    "apps/**/*.vue",
+    "libs/**/*.ts",
+    "libs/**/*.d.ts",
+    "libs/**/*.tsx",
+    "libs/**/*.vue"
+  ]
 }
