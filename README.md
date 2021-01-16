@@ -1,6 +1,73 @@
-# vite-plus
+```
 
-Vite cli tool to create multiple apps. Opinated tool. Uses vue api and extends is commands.
+  ██╗   ██╗██╗████████╗███████╗██╗   ██╗██████╗
+  ██║   ██║██║╚══██╔══╝██╔════╝██║   ██║██╔══██╗
+  ██║   ██║██║   ██║   █████╗  ██║   ██║██████╔╝
+  ╚██╗ ██╔╝██║   ██║   ██╔══╝  ██║   ██║██╔═══╝
+   ╚████╔╝ ██║   ██║   ███████╗╚██████╔╝██║
+    ╚═══╝  ╚═╝   ╚═╝   ╚══════╝ ╚═════╝ ╚═╝
+
+```
+
+Enhanced Vite cli tool to create multiple apps and mange like monorepo.
+
+Current: WIP
+
+# Usage
+
+Cli have global options that you can use in any viteup command.
+
+```bash
+Usage: viteup [options] [command]
+
+Vite monorepo apps
+
+Options:
+  -V, --version           output the version number
+  -c, --config <file>     [string] use specified config file (default: "vite.config")
+  -r, --root <path>       [string] use specified root directory (default: ".")
+  -l, --logLevel <level>  [string] silent | error | warn | all (default: "all")
+  --clearScreen           [boolean] allow/disable clear screen when logging (default: false)
+  -d, --debug [feat]      [string | boolean] show debug logs (default: false)
+  -f, --filter <filter>   [string] filter debug logs
+  -h, --help              display help for command
+
+Commands:
+  init [options]          Create project skeleton
+  create [options]        Create application or library
+  help [command]          display help for command
+```
+
+### `$ viteup init`
+
+Inits a project directory and main files for apps and libraries
+
+```bash
+Usage: viteup init [options]
+
+Create project skeleton
+
+Options:
+  --project <name>  [string] Project name
+  -h, --help        display help for command
+```
+
+### `$ viteup create`
+
+Creates application or library on a vit project
+
+```bash
+Usage: viteup create [options]
+
+Create application or library
+
+Options:
+  --app <name>             [string] Create application
+  --lib <name>             [string] Create library
+  --type <framework>       [vue] Type of framework (default: "vue")
+  --namespace <namespace>  [string] Namespace path
+  -h, --help               display help for command
+```
 
 # Develop
 
@@ -27,14 +94,12 @@ Have cli.ts file open on Vscode and use this config for launch.json
       "sourceMaps": true,
       "cwd": "${workspaceRoot}",
       "protocol": "inspector",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "skipFiles": ["<node_internals>/**"],
       "env": {
         "TS_NODE_FILES": "true",
         "TS_NODE_PROJECT": "./tsconfig.json"
       }
-  }
+    }
   ]
 }
 ```
