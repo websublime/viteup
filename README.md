@@ -11,7 +11,8 @@
 
 Enhanced Vite cli tool to create multiple apps and mange like monorepo.
 
-Current: WIP
+Current: Deprecated (was POC)
+If you need such tool please use [VTX](https://github.com/miguelramos/vtx) instead
 
 # Usage
 
